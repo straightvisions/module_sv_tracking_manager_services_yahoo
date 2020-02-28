@@ -55,27 +55,27 @@
 		}
 		public function is_active(): bool{
 			// activate not set
-			if(!$this->get_setting('activate')->run_type()->get_data()){
+			if(!$this->get_setting('activate')->get_data()){
 				return false;
 			}
 			// activate not true
-			if($this->get_setting('activate')->run_type()->get_data() !== '1'){
+			if($this->get_setting('activate')->get_data() !== '1'){
 				return false;
 			}
 			// Tracking ID not set
-			if(!$this->get_setting('tracking_id')->run_type()->get_data()){
+			if(!$this->get_setting('tracking_id')->get_data()){
 				return false;
 			}
 			// Tracking ID empty
-			if(strlen(trim($this->get_setting('tracking_id')->run_type()->get_data())) === 0){
+			if(strlen(trim($this->get_setting('tracking_id')->get_data())) === 0){
 				return false;
 			}
 			// Project ID not set
-			if(!$this->get_setting('project_id')->run_type()->get_data()){
+			if(!$this->get_setting('project_id')->get_data()){
 				return false;
 			}
 			// Project ID empty
-			if(strlen(trim($this->get_setting('project_id')->run_type()->get_data())) === 0){
+			if(strlen(trim($this->get_setting('project_id')->get_data())) === 0){
 				return false;
 			}
 			
@@ -86,8 +86,8 @@
 				$this->get_script('default')
 					 ->set_is_enqueued()
 					 ->set_localized(array(
-						 'tracking_id'	=> $this->get_setting('tracking_id')->run_type()->get_data(),
-						 'project_id'	=> $this->get_setting('project_id')->run_type()->get_data()
+						 'tracking_id'	=> $this->get_setting('tracking_id')->get_data(),
+						 'project_id'	=> $this->get_setting('project_id')->get_data()
 					 ));
 			}
 			
